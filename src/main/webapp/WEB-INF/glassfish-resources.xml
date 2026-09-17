@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE resources PUBLIC "-//GlassFish.org//DTD GlassFish Application Server 3.1 Resource Definitions//EN" "http://glassfish.org/dtds/glassfish-resources_1_5.dtd">
+<resources>
+    <!-- JMS Connection Factory for TechMart -->
+    <connector-connection-pool name="jms/TechMartConnectionFactoryPool"
+                               resource-adapter-name="jmsra"
+                               connection-definition-name="jakarta.jms.ConnectionFactory"
+                               transaction-support="XATransaction"/>
+    <connector-resource pool-name="jms/TechMartConnectionFactoryPool"
+                        jndi-name="jms/TechMartConnectionFactory"/>
+
+    <!-- Order Queue (P2P) -->
+    <admin-object-resource res-adapter="jmsra"
+                           res-type="jakarta.jms.Queue"
+                           jndi-name="jms/OrderQueue">
+        <property name="Name" value="OrderQueue"/>
+    </admin-object-resource>
+
+    <!-- Inventory Alert Topic (Pub/Sub) -->
+    <admin-object-resource res-adapter="jmsra"
+                           res-type="jakarta.jms.Topic"
+                           jndi-name="jms/InventoryAlertTopic">
+        <property name="Name" value="InventoryAlertTopic"/>
+    </admin-object-resource>
+</resources>

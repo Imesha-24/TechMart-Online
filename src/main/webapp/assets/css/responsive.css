@@ -1,0 +1,332 @@
+/* ============================================
+   TechMart Online - Responsive Styles
+   ============================================ */
+
+/* ---- Large Tablets & Small Desktops ---- */
+@media (max-width: 1199.98px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .chart-container {
+        height: 240px;
+    }
+}
+
+/* ---- Tablets ---- */
+@media (max-width: 991.98px) {
+    .admin-sidebar {
+        transform: translateX(-100%);
+    }
+
+    .admin-sidebar.open {
+        transform: translateX(0);
+    }
+
+    .admin-main {
+        margin-left: 0;
+    }
+
+    .hero-section {
+        padding: 3rem 2rem;
+        text-align: center;
+    }
+
+    .hero-title {
+        font-size: 2.25rem;
+    }
+
+    .hero-image {
+        margin-top: 2rem;
+    }
+
+    .cart-summary {
+        position: static;
+        margin-top: 2rem;
+    }
+
+    .product-detail-image {
+        margin-bottom: 1.5rem;
+    }
+
+    .dashboard-card-value {
+        font-size: 1.75rem;
+    }
+
+    .table-card-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .admin-search {
+        max-width: 100%;
+        width: 100%;
+    }
+}
+
+/* ---- Mobile Landscape & Small Tablets ---- */
+@media (max-width: 767.98px) {
+    .hero-section {
+        padding: 2.5rem 1.5rem;
+        border-radius: var(--radius-lg);
+    }
+
+    .hero-title {
+        font-size: 1.85rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+    }
+
+    .navbar-actions .btn-profile span {
+        display: none !important;
+    }
+
+    .page-header h1 {
+        font-size: 1.5rem;
+    }
+
+    .auth-card {
+        padding: 2rem 1.5rem;
+    }
+
+    .filter-bar .row > div {
+        margin-bottom: 0.75rem;
+    }
+
+    .cart-item {
+        flex-wrap: wrap;
+    }
+
+    .cart-item-image {
+        width: 60px;
+        height: 60px;
+    }
+
+    .checkout-step {
+        padding: 1.25rem;
+    }
+
+    .order-card .row {
+        gap: 1rem;
+    }
+
+    .data-table {
+        font-size: 0.85rem;
+    }
+
+    .data-table thead th,
+    .data-table tbody td {
+        padding: 0.75rem;
+    }
+
+    .chart-container {
+        height: 200px;
+    }
+
+    .dashboard-card {
+        padding: 1.25rem;
+    }
+
+    .dashboard-card-value {
+        font-size: 1.5rem;
+    }
+
+    .admin-content {
+        padding: 1rem;
+    }
+
+    .admin-topbar {
+        padding: 0.75rem 1rem;
+    }
+
+    .footer-section {
+        padding: 2rem 0 1rem;
+    }
+
+    .payment-icons {
+        justify-content: flex-start;
+        margin-top: 1rem;
+    }
+
+    .notification-dropdown {
+        min-width: 260px !important;
+    }
+
+    .glass-dropdown {
+        min-width: 240px !important;
+    }
+}
+
+/* ---- Mobile Portrait ---- */
+@media (max-width: 575.98px) {
+    .header-topbar {
+        font-size: 0.7rem;
+        padding: 0.35rem 0;
+    }
+
+    .header-topbar-right {
+        gap: 0.75rem !important;
+    }
+
+    .back-to-top {
+        bottom: 1rem;
+        right: 1rem;
+        width: 40px;
+        height: 40px;
+    }
+
+    .footer-newsletter {
+        padding: 1.25rem !important;
+    }
+
+    .container-page {
+        padding: 0 1rem;
+    }
+
+    .hero-title {
+        font-size: 1.5rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .hero-buttons .btn {
+        width: 100%;
+    }
+
+    .category-card {
+        padding: 1rem;
+    }
+
+    .category-icon {
+        width: 48px;
+        height: 48px;
+        font-size: 1.2rem;
+    }
+
+    .product-body {
+        padding: 1rem;
+    }
+
+    .product-footer {
+        padding: 0 1rem 1rem;
+    }
+
+    .product-footer .btn {
+        font-size: 0.85rem;
+        padding: 0.5rem;
+    }
+
+    .stat-number {
+        font-size: 1.5rem;
+    }
+
+    .pagination-glass .page-link {
+        padding: 0.35rem 0.65rem;
+        font-size: 0.85rem;
+    }
+
+    .order-timeline {
+        padding-left: 1.5rem;
+    }
+
+    .timeline-dot {
+        left: -1.5rem;
+        width: 20px;
+        height: 20px;
+    }
+
+    .table-actions {
+        flex-wrap: wrap;
+    }
+
+    .quick-view-details .row {
+        flex-direction: column;
+    }
+
+    .admin-topbar .d-flex.gap-2 {
+        gap: 0.35rem !important;
+    }
+
+    .btn-icon {
+        width: 38px;
+        height: 38px;
+    }
+
+    .sidebar-header {
+        padding: 1rem;
+    }
+
+    .sidebar-link {
+        padding: 0.65rem 1rem !important;
+    }
+
+    .chart-card {
+        padding: 1rem;
+    }
+
+    .chart-card-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
+    }
+}
+
+/* ---- Print Styles ---- */
+@media print {
+    .navbar-glass,
+    .footer-section,
+    .admin-sidebar,
+    .admin-topbar,
+    .sidebar-overlay,
+    .loading-overlay,
+    .toast-container {
+        display: none !important;
+    }
+
+    .admin-main {
+        margin-left: 0 !important;
+    }
+
+    body {
+        background: #fff;
+        color: #000;
+    }
+
+    .glass-card,
+    .dashboard-card,
+    .table-card {
+        box-shadow: none;
+        border: 1px solid #ddd;
+    }
+}
+
+/* ---- Reduced Motion ---- */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* ---- High Contrast ---- */
+@media (prefers-contrast: high) {
+    :root {
+        --border-color: rgba(13, 110, 253, 0.3);
+    }
+
+    .glass-card,
+    .product-card,
+    .dashboard-card {
+        border-width: 2px;
+    }
+}

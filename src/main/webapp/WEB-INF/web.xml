@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee
+             https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd"
+         version="6.0">
+
+    <display-name>TechMart Online</display-name>
+    <description>TechMart Online E-Commerce Platform — Jakarta EE 10 / Payara 6</description>
+
+    <!--
+        ╔══════════════════════════════════════════════════════════════════════╗
+        ║  JNDI Environment Property Management                               ║
+        ║                                                                     ║
+        ║  These <env-entry> elements declare application configuration        ║
+        ║  properties that are bound into the java:comp/env/ JNDI namespace   ║
+        ║  by the container at deploy time.                                   ║
+        ║                                                                     ║
+        ║  ACCESS PATTERNS:                                                   ║
+        ║  1. Programmatic: EjbLookupUtil.lookupEnvProperty("name", Type.class)║
+        ║  2. Declarative:  @Resource(name="appVersion") private String ver;  ║
+        ║                                                                     ║
+        ║  BENEFIT: Changing a value requires only a web.xml edit and         ║
+        ║  redeploy — no Java source code change. Environment-specific        ║
+        ║  overrides (dev/staging/prod) can be managed at the server level.   ║
+        ╚══════════════════════════════════════════════════════════════════════╝
+    -->
+
+    <!-- Application metadata -->
+    <env-entry>
+        <description>Application display name used in email templates and admin UI.</description>
+        <env-entry-name>appName</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>TechMart Online</env-entry-value>
+    </env-entry>
+
+    <env-entry>
+        <description>Current application version string for footer and API responses.</description>
+        <env-entry-name>appVersion</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>1.0.0</env-entry-value>
+    </env-entry>
+
+    <!-- Cart behaviour configuration -->
+    <env-entry>
+        <description>Maximum quantity of any single product allowed in the cart.</description>
+        <env-entry-name>maxCartItemQuantity</env-entry-name>
+        <env-entry-type>java.lang.Integer</env-entry-type>
+        <env-entry-value>99</env-entry-value>
+    </env-entry>
+
+    <env-entry>
+        <description>Maximum number of distinct product lines in a single cart.</description>
+        <env-entry-name>maxCartLineItems</env-entry-name>
+        <env-entry-type>java.lang.Integer</env-entry-type>
+        <env-entry-value>50</env-entry-value>
+    </env-entry>
+
+    <!-- Async operation configuration -->
+    <env-entry>
+        <description>
+            Timeout in milliseconds for @Asynchronous notification delivery confirmation.
+            If the async Future does not resolve within this window, the caller proceeds
+            without blocking and logs a warning. Tune based on 95th-percentile DB write latency.
+        </description>
+        <env-entry-name>asyncNotificationTimeoutMs</env-entry-name>
+        <env-entry-type>java.lang.Integer</env-entry-type>
+        <env-entry-value>3000</env-entry-value>
+    </env-entry>
+
+    <env-entry>
+        <description>
+            Maximum retry attempts for the addNotificationAsyncWithRetry() method.
+            Exponential backoff applies between attempts: delay = 100ms * 2^(attempt-1).
+        </description>
+        <env-entry-name>asyncNotificationMaxRetries</env-entry-name>
+        <env-entry-type>java.lang.Integer</env-entry-type>
+        <env-entry-value>3</env-entry-value>
+    </env-entry>
+
+    <!-- Inventory threshold configuration -->
+    <env-entry>
+        <description>
+            Stock quantity at or below which a product is classified as "low stock".
+            Used by InventoryAlertMDB to determine whether to trigger admin alerts.
+        </description>
+        <env-entry-name>lowStockThreshold</env-entry-name>
+        <env-entry-type>java.lang.Integer</env-entry-type>
+        <env-entry-value>5</env-entry-value>
+    </env-entry>
+
+    <!--
+        ╔══════════════════════════════════════════════════════════════════════╗
+        ║  JDBC DataSource Resource Reference                                 ║
+        ║                                                                     ║
+        ║  Declares the logical JNDI name java:comp/env/jdbc/techmart.        ║
+        ║  The container maps this to the physical connection pool             ║
+        ║  (configured in Payara admin console as "techmart-pool").           ║
+        ║                                                                     ║
+        ║  This decoupling means the application code never hardcodes         ║
+        ║  a connection URL — only this logical name.                         ║
+        ╚══════════════════════════════════════════════════════════════════════╝
+    -->
+    <resource-ref>
+        <description>
+            PostgreSQL connection pool managed by the Payara container.
+            Create the JDBC pool in Payara admin console and map it to this name.
+        </description>
+        <res-ref-name>jdbc/techmart</res-ref-name>
+        <res-type>javax.sql.DataSource</res-type>
+        <res-auth>Container</res-auth>
+        <res-sharing-scope>Shareable</res-sharing-scope>
+    </resource-ref>
+
+
+
+</web-app>
